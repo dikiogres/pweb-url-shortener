@@ -9,9 +9,13 @@
         }
         $sql = mysqli_query($conn, "SELECT full_url FROM url WHERE shorten_url = '$new_url'");
         if(mysqli_num_rows($sql) > 0) {
-            //redirect user to full url
-            $full_url = mysqli_fetch_assoc($sql);
-            header("Location:".$full_url['full_url']);
+            $count_query = mysqli_query($conn, "UPDATE url SET clicks = clicks + 1 WHERE shorten_url = '$new_url'");
+            
+            if($count_query) {
+                //redirect user to full url
+                $full_url = mysqli_fetch_assoc($sql);
+                header("Location:".$full_url['full_url']);
+            }
         }
     }
 ?>
@@ -25,7 +29,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
     <title>URL Shortener</title>
-</head> 
+</head>
 <body>
     <div class="wrapper">
         <!-- Form -->
