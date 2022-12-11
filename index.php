@@ -45,17 +45,23 @@
                     ?>
                     <!-- Counts -->
                     <div class="count">
+                        <?php
+                            $sql3 = mysqli_query($conn, "SELECT SUM(clicks) AS total_clicks FROM url");
+                            $sql4 = mysqli_query($conn, "SELECT COUNT(*) AS total_urls FROM url");
+                            $total_clicks = mysqli_fetch_assoc($sql3);
+                            $total_urls = mysqli_fetch_assoc($sql4);
+                        ?>
                         <span>
-                            Total URLs : <span>0</span> and Total clicks : <span>0</span>
+                            Total URLs : <span><?php echo end($total_urls) ?></span> and Total clicks : <span><?php echo end($total_clicks)?></span>
                         </span>
-                        <a href="">Clear All</a>
+                        <a href="php/delete.php?delete=all">Clear All</a>
                     </div>
 
                     <!-- Links -->
                     <div class="urls-area">
                         <!-- List of URLs -->
                         <div class="title">
-                            <li>Shortde URL</li>
+                            <li>Shorten URL</li>
                             <li>Original URL</li>
                             <li>Clicks</li>
                             <li>Action</li>
@@ -88,7 +94,6 @@
                             <li><?php echo $row['clicks']?></li>
                             <li>
                                 <a href="php/delete.php?id=<?php echo $row['shorten_url'] ?>">
-                                <a href="">
                                     <i data-feather="trash"></i>
                                 </a>
                             </li>
