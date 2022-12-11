@@ -23,8 +23,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
     <title>URL Shortener</title>
-</head>
+</head> 
 <body>
     <div class="wrapper">
         <!-- Form -->
@@ -120,5 +121,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/notie"></script>
 </body>
 </html>
