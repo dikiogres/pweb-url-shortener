@@ -1,2 +1,2 @@
 # pweb-url-shortener
-URL Shortener built using native PHP
+URL Shortener built using PHP Native
